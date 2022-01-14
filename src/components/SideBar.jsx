@@ -5,12 +5,9 @@ import bike from '../assets/images/bike.svg'
 import weights from '../assets/images/weights.svg'
 
 const StyledSideBar = styled.div`
-    position: absolute;
-    top: 0px;
-    left: 0px;
     display: flex;
     flex-direction: column;
-    height: 900px;
+    height: 800px;
     width: 117px;
     align-items: center;
     background: #020203;
