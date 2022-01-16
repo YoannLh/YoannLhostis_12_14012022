@@ -9,7 +9,6 @@ const StyledScores = styled.div`
     width: 23.5%;
 `
 
-
 function Scores() {
     return(
         <StyledScores>

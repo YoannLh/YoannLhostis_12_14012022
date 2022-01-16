@@ -21,19 +21,26 @@ const StyledDetails = styled.div`
     flex-direction: column;
     height: 60px;
     justify-content: space-around;
-    margin-left: 25%;
+    margin-left: 10%;
+`
+
+const StyledNumber = styled.p`
+    font-size: 1.2em;
+    font-weight: bold;
+`
+
+const StyledUnity = styled.p`
+    
 `
 
 function Score() {
     return(
         <StyledScore>
             <StyledImg src={fat} />
-            <div style={{"flex":"display; flex-direction: column;"}}>
-                <StyledDetails>
-                    <p style={{"font-size": "1.2em", "font-weight": "bold"}}>1,930kCal</p>
-                    <p>Calories</p>
-                </StyledDetails>
-            </div>
+            <StyledDetails>
+                <StyledNumber>1,930kCal</StyledNumber>
+                <StyledUnity>Calories</StyledUnity>
+            </StyledDetails>
         </StyledScore>
     )
 }

@@ -6,11 +6,23 @@ const StyledHello = styled.div`
     width: 100%;
 `
 
+const StyledHelloFirstName = styled.p`
+    font-size: 3em;
+`
+
+const StyledFirstName = styled.span`
+    color: red;
+`
+
+const StyledCongrats = styled.p`
+    margin-top: 2%;
+`
+
 function Board() {
     return(
         <StyledHello>
-            <p style={{"font-size": "3em"}}>Hello <span style={{"color": "red"}}>Loulou</span></p>
-            <p style={{"margin-top": "2%"}}>Bravo le fifou !</p>
+            <StyledHelloFirstName>Hello <StyledFirstName>Loulou</StyledFirstName></StyledHelloFirstName>
+            <StyledCongrats>Bravo le grand fifou !</StyledCongrats>
         </StyledHello>
     )
 }

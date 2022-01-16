@@ -15,16 +15,22 @@ const StyledBarCharts = styled(BarCharts)`
     background: #FBFBFB;
 `
 
+const StyledContainerLineRadarAndPie = styled.div`
+    display: flex;
+    width: 100%;
+    height: 42.5%;
+    justify-content: space-between;
+`
 
 function Graphs() {
     return(
         <StyledGraphs>
             <StyledBarCharts />
-            <div style={{"display": "flex", "width": "100%", "height": "42.5%", "justifyContent": "space-between"}}>
+            <StyledContainerLineRadarAndPie>
                 <LineCharts />
                 <RadarCharts />
                 <PieCharts />
-            </div>
+            </StyledContainerLineRadarAndPie>
         </StyledGraphs>
     )
 }
