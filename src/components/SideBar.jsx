@@ -27,7 +27,7 @@ const StyledImg = styled.img`
 
 const StyledCopyright = styled.p`
     position: relative;
-    top: -150px;
+    top: -50px;
     width: 200px;
     transform: rotate(270deg);
     color: white;

@@ -4,6 +4,10 @@ body {
     padding: 0;
 }
 
+* {
+    font-family: "roboto";
+}
+
 p {
     margin: 0;
 }

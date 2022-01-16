@@ -65,30 +65,30 @@ const data = [
 ];
 
 const StyledContainer = styled(ResponsiveContainer)`
+    width: 100% !important;
+    height: 51.5% !important;
     background: #FBFBFB;
+    border-radius: 5px;
 `
 
 function BarCharts() {
 
     return (
-      <StyledContainer width="100%" height="51.5%">
+      <StyledContainer>
         <BarChart
-          width={500}
-          height={300}
           data={data}
           margin={{
-            top: 5,
-            right: 30,
+            top: 90,
+            right: 50,
             left: 20,
-            bottom: 5,
+            bottom: 15,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
           <Tooltip />
-          <Bar dataKey="pv" fill="black" />
-          <Bar dataKey="uv" fill="red" />
+          <Bar dataKey="pv" fill="black" width="3px !important" />
+          <Bar dataKey="uv" fill="red" width="3px !important" />
         </BarChart>
       </StyledContainer>
     );

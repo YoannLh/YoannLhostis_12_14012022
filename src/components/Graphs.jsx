@@ -12,7 +12,7 @@ const StyledGraphs = styled.div`
 `
 
 const StyledBarCharts = styled(BarCharts)`
-    background: grey;
+    background: #FBFBFB;
 `
 
 
@@ -20,7 +20,7 @@ function Graphs() {
     return(
         <StyledGraphs>
             <StyledBarCharts />
-            <div style={{"display": "flex", "width": "100%", "height": "42.5%", "background": "black"}}>
+            <div style={{"display": "flex", "width": "100%", "height": "42.5%", "justifyContent": "space-between"}}>
                 <LineCharts />
                 <RadarCharts />
                 <PieCharts />

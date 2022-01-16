@@ -1,37 +1,34 @@
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import styled from 'styled-components'
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const StyledPieCharts = styled.div`
+    display: flex;
+    width: 30%;
+    height: 100%;
+    background: #FBFBFB;
+    border-radius: 5px;
+`
 
-export default class PieCharts extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/pie-chart-with-padding-angle-7ux0o';
+const StyledPie = styled.div`
+    display: flex;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background: white;
+    margin: auto;
+    border: 10px solid red;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+`
 
-  render() {
+function PieCharts() {
     return (
-      <div width="30%" height="50px">
-        <PieChart width={100} height={100} onMouseEnter={this.onPieEnter}>
-        <Pie
-          data={data}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-      </div>
+        <StyledPieCharts>
+            <StyledPie>
+                <p style={{"width": "50%","margin": "auto", "font-size": "1.5em", "text-align": "center"}}>12% de votre objectif</p>
+            </StyledPie>
+        </StyledPieCharts>
     );
-  }
 }
+
+export default PieCharts
