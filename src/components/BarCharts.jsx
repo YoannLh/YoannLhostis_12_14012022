@@ -71,7 +71,7 @@ const StyledContainer = styled(ResponsiveContainer)`
 function BarCharts() {
 
     return (
-      <StyledContainer width="100%" height="50%">
+      <StyledContainer width="100%" height="51.5%">
         <BarChart
           width={500}
           height={300}

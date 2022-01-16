@@ -4,8 +4,9 @@ import Score from './Score'
 const StyledScores = styled.div`
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 100%;
     justify-content: space-between;
+    width: 23.5%;
 `
 
 

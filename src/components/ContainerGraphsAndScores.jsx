@@ -6,7 +6,8 @@ const StyledContainerGraphsAndScores = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 30px;
+    height: 550px;
+    margin-top: 3%;
 `
 
 

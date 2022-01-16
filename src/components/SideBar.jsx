@@ -7,7 +7,7 @@ import weights from '../assets/images/weights.svg'
 const StyledSideBar = styled.div`
     display: flex;
     flex-direction: column;
-    height: 800px;
+    height: auto;
     width: 117px;
     align-items: center;
     background: #020203;
@@ -17,8 +17,8 @@ const StyledSideBar = styled.div`
 const StyledNav = styled.nav`
     display: flex;
     flex-direction: column;
-    margin: auto;
-    height: 35%;
+    margin: 210px auto;
+    height: 310px;
 `
 
 const StyledImg = styled.img`

@@ -4,6 +4,7 @@ import logo from '../assets/images/logo.svg'
 const StyledHeader = styled.div`
     display: flex;
     height: 91px;
+    width: 100%;
     align-items: center;
     background: #020203;
     box-shadow: 10px 0 10px black;

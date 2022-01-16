@@ -4,6 +4,7 @@ import Board from './Board'
 
 const StyledMain = styled.div`
     display: flex;
+    width: 100%;
 `
 
 function Main() {
