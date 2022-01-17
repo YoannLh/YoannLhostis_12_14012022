@@ -1,3 +1,5 @@
+import { useState, useContext, useEffect } from 'react'
+import { ThemeContext } from '../context/Context'
 import styled from "styled-components"
 
 const StyledHello = styled.div`
@@ -19,10 +21,19 @@ const StyledCongrats = styled.p`
 `
 
 function Board() {
+    const { data } = useContext(ThemeContext)
+    const [firstname, setFirstname] = useState()
+    console.log("in header ", data)
+    useEffect(() => {
+        console.log("useeffect")
+        let id = data.id
+        setFirstname(id)
+    }, [ data ])
+    
     return(
         <StyledHello>
-            <StyledHelloFirstName>Hello <StyledFirstName>Loulou</StyledFirstName></StyledHelloFirstName>
-            <StyledCongrats>Bravo le grand fifou !</StyledCongrats>
+            <StyledHelloFirstName>Hello <StyledFirstName>{firstname}</StyledFirstName></StyledHelloFirstName>
+            <StyledCongrats>Félicitations, tu es un grand fifou !</StyledCongrats>
         </StyledHello>
     )
 }

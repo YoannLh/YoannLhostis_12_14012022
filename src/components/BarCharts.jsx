@@ -71,8 +71,7 @@ const StyledContainer = styled(ResponsiveContainer)`
     border-radius: 5px;
 `
 
-function BarCharts() {
-
+function BarCharts(props) {
     return (
       <StyledContainer>
         <BarChart

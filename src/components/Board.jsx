@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { ThemeProvider } from '../context/Context'
 import Hello from './Hello'
 import ContainerGraphsAndScores from './ContainerGraphsAndScores'
 
@@ -13,8 +14,10 @@ const StyledBoard = styled.div`
 function Board() {
     return(
         <StyledBoard>
-            <Hello />
-            <ContainerGraphsAndScores />
+            <ThemeProvider>
+                <Hello />
+                <ContainerGraphsAndScores />
+            </ThemeProvider>
         </StyledBoard>
     )
 }
