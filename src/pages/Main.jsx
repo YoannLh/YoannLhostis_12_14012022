@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import SideBar from './SideBar'
-import Board from './Board'
+import SideBar from '../components/SideBar'
+import Board from '../components/Board'
 
 const StyledMain = styled.div`
     display: flex;
