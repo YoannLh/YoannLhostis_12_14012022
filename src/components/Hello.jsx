@@ -22,18 +22,20 @@ const StyledCongrats = styled.p`
 
 function Board() {
     const { data } = useContext(ThemeContext)
-    const [firstname, setFirstname] = useState()
-    console.log("in header ", data)
+    const [firstname, setFirstname] = useState() 
+
     useEffect(() => {
-        console.log("useeffect")
-        let id = data.id
-        setFirstname(id)
-    }, [ data ])
+        const getFirstName = async () => {
+            setFirstname(await data.userInfos.firstName)
+        }
+        getFirstName();
+    });
+    
     
     return(
         <StyledHello>
             <StyledHelloFirstName>Hello <StyledFirstName>{firstname}</StyledFirstName></StyledHelloFirstName>
-            <StyledCongrats>Félicitations, tu es un grand fifou !</StyledCongrats>
+            <StyledCongrats>Félicitations ! Vous avez explosé vos objectifs hier 👏 </StyledCongrats>
         </StyledHello>
     )
 }

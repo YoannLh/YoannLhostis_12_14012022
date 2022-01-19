@@ -21,11 +21,18 @@ const StyledPie = styled.div`
     border-right-color: transparent;
 `
 
+const StyledResults = styled.p`
+    width: 50%;
+    margin: auto;
+    font-size: 1.5em;
+    text-align: center;
+`
+
 function PieCharts() {
     return (
         <StyledPieCharts>
             <StyledPie>
-                <p style={{"width": "50%","margin": "auto", "font-size": "1.5em", "text-align": "center"}}>12% de votre objectif</p>
+                <StyledResults>12% de votre objectif</StyledResults>
             </StyledPie>
         </StyledPieCharts>
     );

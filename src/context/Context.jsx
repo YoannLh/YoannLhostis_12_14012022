@@ -10,6 +10,7 @@ export const ThemeProvider = ({ children }) => {
         async function getData() {
             const newData = await caller.callApi();
             console.log(newData)
+            console.log("data in context")
             setData(newData)
         }
         getData();

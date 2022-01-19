@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import calories from '../assets/images/calories-icon.svg'
+import calorie from '../assets/images/calories-icon.svg'
 import protein from '../assets/images/protein-icon.svg'
-import carbs from '../assets/images/carbs-icon.svg'
-import fat from '../assets/images/fat-icon.svg'
+import carbohydrate from '../assets/images/carbs-icon.svg'
+import lipid from '../assets/images/fat-icon.svg'
 
 const StyledScore = styled.div`
     display: flex;
@@ -33,13 +33,20 @@ const StyledUnity = styled.p`
     
 `
 
-function Score() {
+function Score(props) {
     return(
         <StyledScore>
-            <StyledImg src={fat} />
+            <StyledImg 
+                src={
+                    props.type === "calorie" ? calorie : null ||
+                    props.type === "carbohydrate" ? carbohydrate : null ||
+                    props.type === "proteine" ? protein : null ||
+                    props.type === "lipide" ? lipid : null
+                } 
+            />
             <StyledDetails>
-                <StyledNumber>1,930kCal</StyledNumber>
-                <StyledUnity>Calories</StyledUnity>
+                <StyledNumber>{props.value}</StyledNumber>
+                <StyledUnity>{props.unity}</StyledUnity>
             </StyledDetails>
         </StyledScore>
     )
