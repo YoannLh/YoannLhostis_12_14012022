@@ -31,10 +31,10 @@ function Scores() {
     
     return(
         <StyledScores>
-            <Score type={"calorie"} value={calorie} unity={"Calories"} />
-            <Score type={"proteine"} value={protein} unity={"Proteines"} />
-            <Score type={"carbohydrate"} value={carbohydrate} unity={"Glucides"} />
-            <Score type={"lipide"} value={lipid} unity={"Lipides"} />
+            <Score type={"calorie"} value={calorie} unity={"Calories"} unit={"kCal"}/>
+            <Score type={"proteine"} value={protein} unity={"Proteines"} unit={"g"} />
+            <Score type={"carbohydrate"} value={carbohydrate} unity={"Glucides"} unit={"g"}/>
+            <Score type={"lipide"} value={lipid} unity={"Lipides"} unit={"g"} />
         </StyledScores>
     )
 }

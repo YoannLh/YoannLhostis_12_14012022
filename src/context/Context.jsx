@@ -25,7 +25,6 @@ export const ThemeProvider = ({ children }) => {
         }
         getUser()
     }, [children]);
-    console.log("userAverageSessions : ", userAverageSessions)
 
     return (
         <ThemeContext.Provider 

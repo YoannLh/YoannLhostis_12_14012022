@@ -45,7 +45,7 @@ function Score(props) {
                 } 
             />
             <StyledDetails>
-                <StyledNumber>{props.value}</StyledNumber>
+                <StyledNumber>{props.value}{props.unit}</StyledNumber>
                 <StyledUnity>{props.unity}</StyledUnity>
             </StyledDetails>
         </StyledScore>

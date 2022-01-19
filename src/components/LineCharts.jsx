@@ -25,7 +25,6 @@ function LineCharts() {
             setData(temp)
         }
         getSessions()
-        console.log(data)
     }, [value3])
     
     return (
