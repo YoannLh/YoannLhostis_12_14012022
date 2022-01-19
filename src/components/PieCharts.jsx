@@ -1,4 +1,6 @@
+import { useEffect, useContext, useState } from 'react/cjs/react.development'
 import styled from 'styled-components'
+import { ThemeContext } from '../context/Context'
 
 const StyledPieCharts = styled.div`
     display: flex;
@@ -29,10 +31,18 @@ const StyledResults = styled.p`
 `
 
 function PieCharts() {
+    const { value } = useContext(ThemeContext)
+    const [score, setScore] = useState()
+    useEffect(() => {
+        const getScore = async () => {
+            setScore(await value.score)
+        } 
+        getScore()
+    }, [value])
     return (
         <StyledPieCharts>
             <StyledPie>
-                <StyledResults>12% de votre objectif</StyledResults>
+                <StyledResults>{score * 100} % de votre objectif</StyledResults>
             </StyledPie>
         </StyledPieCharts>
     );

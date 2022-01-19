@@ -1,50 +1,8 @@
+import { useContext } from 'react';
 import styled from 'styled-components'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-
-const data = [
-    {
-        name: 'L',
-        uv: 4000,
-        pv: 2400,
-        amt: 2400,
-    },
-    {
-        name: 'M',
-        uv: 3000,
-        pv: 1398,
-        amt: 2210,
-    },
-    {
-        name: 'M',
-        uv: 2000,
-        pv: 9800,
-        amt: 2290,
-    },
-    {
-        name: 'J',
-        uv: 2780,
-        pv: 3908,
-        amt: 2000,
-    },
-    {
-        name: 'V',
-        uv: 1890,
-        pv: 4800,
-        amt: 2181,
-    },
-    {
-        name: 'S',
-        uv: 2390,
-        pv: 3800,
-        amt: 2500,
-    },
-    {
-        name: 'D',
-        uv: 3490,
-        pv: 4300,
-        amt: 2100,
-    },
-];
+import { ThemeContext } from '../context/Context'
+import { useEffect, useState } from 'react/cjs/react.development';
 
 const StyledLineCharts = styled(ResponsiveContainer)`
     width: 30% !important;
@@ -54,6 +12,22 @@ const StyledLineCharts = styled(ResponsiveContainer)`
 `
 
 function LineCharts() {
+    const { value3 } = useContext(ThemeContext)
+    const [data, setData] = useState()
+    console.log("value3 : ", value3)
+
+    useEffect(() => {
+        const getSessions = async () => {
+            const temp = []
+            for(const el of await value3.sessions) {
+                temp.push(el)
+            }
+            setData(temp)
+        }
+        getSessions()
+        console.log(data)
+    }, [value3])
+    
     return (
         <StyledLineCharts>
             <LineChart
@@ -65,9 +39,9 @@ function LineCharts() {
                     bottom: 5,
                 }}
             >
-                <XAxis dataKey="name" />
+                <XAxis dataKey={"day"} />
                 <Tooltip />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" activeDot={{ r: 8 }} />
             </LineChart>
         </StyledLineCharts>
     );

@@ -21,15 +21,15 @@ const StyledCongrats = styled.p`
 `
 
 function Board() {
-    const { data } = useContext(ThemeContext)
+    const { value } = useContext(ThemeContext)
     const [firstname, setFirstname] = useState() 
 
     useEffect(() => {
         const getFirstName = async () => {
-            setFirstname(await data.userInfos.firstName)
+            setFirstname(await value.userInfos.firstName)
         }
         getFirstName();
-    });
+    }, [value]);
     
     
     return(

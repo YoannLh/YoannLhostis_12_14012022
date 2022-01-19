@@ -13,7 +13,7 @@ const StyledScores = styled.div`
 `
 
 function Scores() {
-    const { data } = useContext(ThemeContext)
+    const { value } = useContext(ThemeContext)
     const [calorie, setCalorie] = useState()
     const [carbohydrate, setCarbohydrate] = useState()
     const [lipid, setLipid] = useState()
@@ -21,13 +21,13 @@ function Scores() {
 
     useEffect(() => {
         const getData = async () => {
-            setCalorie(await data.keyData.calorieCount)
-            setCarbohydrate(await data.keyData.carbohydrateCount)
-            setLipid(await data.keyData.lipidCount)
-            setProtein(await data.keyData.proteinCount)
+            setCalorie(await value.keyData.calorieCount)
+            setCarbohydrate(await value.keyData.carbohydrateCount)
+            setLipid(await value.keyData.lipidCount)
+            setProtein(await value.keyData.proteinCount)
         }
         getData();
-    }, [data])
+    }, [value])
     
     return(
         <StyledScores>

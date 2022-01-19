@@ -5,19 +5,37 @@ export const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
   const [data, setData] = useState([])
+  const [userActivity, setUserActivity] = useState([])
+  const [userAverageSessions, setUserAverageSessions] = useState([])
+  const [userPerformance, setUserPerformance] = useState([])
+
     useEffect(() => {
         const caller = new Caller()
-        async function getData() {
-            const newData = await caller.callApi();
-            console.log(newData)
-            console.log("data in context")
-            setData(newData)
+        async function getUser() {
+            caller.getId()
+            const newDataUser = await caller.getUser();
+            const newDataActivity = await caller.getActivity()
+            const newDataAverageSessions = await caller.getAverageSessions()
+            const newDataPerformance = await caller.getPerformance()
+
+            setData(await newDataUser)
+            setUserActivity(await newDataActivity)
+            setUserAverageSessions(await newDataAverageSessions)
+            setUserPerformance(await newDataPerformance)
         }
-        getData();
-    }, []);
+        getUser()
+    }, [children]);
+    console.log("userAverageSessions : ", userAverageSessions)
 
     return (
-        <ThemeContext.Provider value={{ data }}>
+        <ThemeContext.Provider 
+            value={{ 
+                value: data, 
+                value2: userActivity, 
+                value3: userAverageSessions, 
+                value4: userPerformance 
+            }} 
+        >
             {children}
         </ThemeContext.Provider>
     )
