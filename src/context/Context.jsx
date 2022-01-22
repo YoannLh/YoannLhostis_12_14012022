@@ -25,8 +25,9 @@ export const ThemeProvider = ({ children }) => {
         }
         getUser()
     }, [children]);
-
+    console.log(data)
     return (
+        
         <ThemeContext.Provider 
             value={{ 
                 value: data, 

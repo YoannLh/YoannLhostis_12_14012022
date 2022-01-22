@@ -15,6 +15,7 @@ function BarCharts() {
     const [data, setData] = useState()
 
     useEffect(() => {
+        if(!value2.sessions) return
         const getActivity = async () => {
             const temp = []
             let day = 1;
@@ -26,7 +27,7 @@ function BarCharts() {
         }
         getActivity()
     }, [value2])
-    
+
     return (
       <StyledContainer>
         <BarChart
@@ -35,14 +36,14 @@ function BarCharts() {
             top: 90,
             right: 50,
             left: 20,
-            bottom: 15,
+            bottom: 15
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <XAxis dataKey="day" />
           <Tooltip />
-          <Bar dataKey="kg" fill="black" width="3px !important" />
-          <Bar dataKey="cal" fill="red" width="3px !important" />
+          <Bar dataKey="kg" fill="black" barSize={7} />
+          <Bar dataKey="cal" fill="red" barSize={7} />
         </BarChart>
       </StyledContainer>
     );

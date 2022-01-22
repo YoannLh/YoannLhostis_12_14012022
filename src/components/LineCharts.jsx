@@ -5,7 +5,7 @@ import { ThemeContext } from '../context/Context'
 import { useEffect, useState } from 'react/cjs/react.development';
 
 const StyledLineCharts = styled(ResponsiveContainer)`
-    width: 30% !important;
+    width: 31% !important;
     height: 100% !important;
     background: red;
     border-radius: 5px;
@@ -17,9 +17,11 @@ function LineCharts() {
     console.log("value3 : ", value3)
 
     useEffect(() => {
+        if(!value3.sessions) return
         const getSessions = async () => {
             const temp = []
             for(const el of await value3.sessions) {
+                console.log(el)
                 temp.push(el)
             }
             setData(temp)
@@ -40,7 +42,7 @@ function LineCharts() {
             >
                 <XAxis dataKey={"day"} />
                 <Tooltip />
-                <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" dot={false} activeDot={{ r: 3 }} />
             </LineChart>
         </StyledLineCharts>
     );

@@ -3,6 +3,7 @@ import calorie from '../assets/images/calories-icon.svg'
 import protein from '../assets/images/protein-icon.svg'
 import carbohydrate from '../assets/images/carbs-icon.svg'
 import lipid from '../assets/images/fat-icon.svg'
+import PropTypes from "prop-types"
 
 const StyledScore = styled.div`
     display: flex;
@@ -29,27 +30,39 @@ const StyledNumber = styled.p`
     font-weight: bold;
 `
 
-const StyledUnity = styled.p`
-    
-`
+//type={"calorie"} value={calorie} unity={"Calories"} unit={"kCal"}
 
-function Score(props) {
+function Score({ type, value, unity, unit }) {
     return(
         <StyledScore>
             <StyledImg 
                 src={
-                    props.type === "calorie" ? calorie : null ||
-                    props.type === "carbohydrate" ? carbohydrate : null ||
-                    props.type === "proteine" ? protein : null ||
-                    props.type === "lipide" ? lipid : null
+                    type === "calorie" ? calorie : null ||
+                    type === "carbohydrate" ? carbohydrate : null ||
+                    type === "proteine" ? protein : null ||
+                    type === "lipide" ? lipid : null
                 } 
             />
             <StyledDetails>
-                <StyledNumber>{props.value}{props.unit}</StyledNumber>
-                <StyledUnity>{props.unity}</StyledUnity>
+                <StyledNumber>{value}{unit}</StyledNumber>
+                <p>{unity}</p>
             </StyledDetails>
         </StyledScore>
     )
+}
+
+Score.propTypes = {
+    type: PropTypes.string,
+    value: PropTypes.number,
+    unity: PropTypes.string,
+    unit: PropTypes.string
+}
+
+Score.defaultProps = {
+    type: "unknow",
+    value: "0",
+    unity: "unités",
+    unit: "unités" 
 }
 
 export default Score

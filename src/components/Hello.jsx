@@ -25,12 +25,12 @@ function Board() {
     const [firstname, setFirstname] = useState() 
 
     useEffect(() => {
+        if(!value.userInfos) return
         const getFirstName = async () => {
             setFirstname(await value.userInfos.firstName)
         }
         getFirstName();
     }, [value]);
-    
     
     return(
         <StyledHello>

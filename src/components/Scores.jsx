@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { useContext, useEffect } from "react/cjs/react.development"
+import { useState, useContext, useEffect } from "react"
 import styled from "styled-components"
 import { ThemeContext } from '../context/Context'
 import Score from './Score'
@@ -20,6 +19,7 @@ function Scores() {
     const [protein, setProtein] = useState()
 
     useEffect(() => {
+        if(!value.keyData) return
         const getData = async () => {
             setCalorie(await value.keyData.calorieCount)
             setCarbohydrate(await value.keyData.carbohydrateCount)
@@ -28,6 +28,8 @@ function Scores() {
         }
         getData();
     }, [value])
+
+    console.log("value : ", value)
     
     return(
         <StyledScores>

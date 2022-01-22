@@ -5,7 +5,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { useEffect, useState } from 'react/cjs/react.development'
 
 const StyledRadarCharts = styled(ResponsiveContainer)`
-    width: 30% !important;
+    width: 31% !important;
     height: 100% !important;
     background: #282D30;
     border-radius: 5px;
@@ -18,6 +18,7 @@ function RadarCharts() {
     console.log(value4)
 
     useEffect(() => {
+        if(!value4.data) return
         const getPerformance = async () => {
             const temp = []
             let index = 1
@@ -33,10 +34,10 @@ function RadarCharts() {
     }, [value4])
     return (
         <StyledRadarCharts>
-            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="kind" />
-                <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.9} />
+            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
+                <PolarGrid stroke="white" />
+                <PolarAngleAxis dataKey="kind" stroke="white" />
+                <Radar dataKey="value" stroke="rgba(255, 0, 0, 0.8)" fill="rgba(255, 0, 0, 0.8)" fillOpacity={0.8} />
             </RadarChart>
         </StyledRadarCharts>
     )
