@@ -10,10 +10,15 @@ export const ThemeProvider = ({ children }) => {
   const [userPerformance, setUserPerformance] = useState([])
 
     useEffect(() => {
-        const caller = new Caller()
         async function getUser() {
-            caller.getId()
-            const newDataUser = await caller.getUser();
+            const caller = new Caller()
+            const id = await caller.getId()
+            console.log(id)
+            if(id === 404) { 
+                window.location.href = '*'
+                return
+            } else {
+                const newDataUser = await caller.getUser();
             const newDataActivity = await caller.getActivity()
             const newDataAverageSessions = await caller.getAverageSessions()
             const newDataPerformance = await caller.getPerformance()
@@ -22,12 +27,14 @@ export const ThemeProvider = ({ children }) => {
             setUserActivity(await newDataActivity)
             setUserAverageSessions(await newDataAverageSessions)
             setUserPerformance(await newDataPerformance)
+            }
         }
         getUser()
     }, [children]);
+
     console.log(data)
+
     return (
-        
         <ThemeContext.Provider 
             value={{ 
                 value: data, 

@@ -14,7 +14,7 @@ const StyledErrorMessage = styled.p`
 function Error() {
     return(
         <StyledContainerError>
-            <StyledErrorMessage>Oups, cet utilisateur est introuvable :/</StyledErrorMessage>
+            <StyledErrorMessage>Erreur 404, cette ressource est introuvable :/</StyledErrorMessage>
         </StyledContainerError>
     )
 }

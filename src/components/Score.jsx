@@ -30,8 +30,6 @@ const StyledNumber = styled.p`
     font-weight: bold;
 `
 
-//type={"calorie"} value={calorie} unity={"Calories"} unit={"kCal"}
-
 function Score({ type, value, unity, unit }) {
     return(
         <StyledScore>

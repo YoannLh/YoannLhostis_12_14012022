@@ -8,16 +8,24 @@ class Caller {
     async getId()  {
         let params = new URLSearchParams(document.location.search.substring(1));
 		this.id = params.get("id");
-        console.log(this.id)
+        try {
+            const response = await fetch(`http://localhost:3001/user/${this.id}`);
+            const parsed = response
+            return this.status = await parsed.status
+        }
+        catch(err) {
+            console.log(err)
+        }
     }
     async getUser() {
         try {
             const response = await fetch(`http://localhost:3001/user/${this.id}`);
             const parsed = await response.json();
-            return this.userData = await parsed.data;
+            return this.parsed = await parsed.data
         }
         catch(err) {
             console.log(err)
+            window.location.href = '*'
         }
     }
     async getActivity() {
