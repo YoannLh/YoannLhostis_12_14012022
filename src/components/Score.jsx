@@ -58,7 +58,7 @@ Score.propTypes = {
 
 Score.defaultProps = {
     type: "unknow",
-    value: "0",
+    value: 0,
     unity: "unités",
     unit: "unités" 
 }

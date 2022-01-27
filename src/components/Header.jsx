@@ -28,7 +28,10 @@ const StyledLi = styled.li`
     color: white;
     font-size: 1.5em;
 `
-
+/**
+ * Component 
+ * Render Header containing StyledLogo and StyledNav containing Accueil, Profil, Réglages, Communauté
+ */
 function Header() {
     return (
         <StyledHeader>

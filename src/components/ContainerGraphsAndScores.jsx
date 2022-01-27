@@ -10,7 +10,10 @@ const StyledContainerGraphsAndScores = styled.div`
     margin-top: 3%;
 `
 
-
+/**
+ * Component
+ * Render StyledContainerGraphsAndScores containing Graphs and Scores
+ */
 function ContainerGraphsAndScores() {
     return(
         <StyledContainerGraphsAndScores>

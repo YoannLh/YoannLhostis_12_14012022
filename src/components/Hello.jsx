@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from 'react'
 import { ThemeContext } from '../context/Context'
 import styled from "styled-components"
+import { PropTypes } from 'prop-types'
+import { string } from 'prop-types'
 
 const StyledHello = styled.div`
     display: flex;
@@ -20,7 +22,11 @@ const StyledCongrats = styled.p`
     margin-top: 2%;
 `
 
-function Board() {
+/**
+ * Component
+ * Render StyledHello containing "Hello" + firstname and StyledCongrats (some text)
+ */
+function Hello() {
     const { value } = useContext(ThemeContext)
     const [firstname, setFirstname] = useState() 
 
@@ -30,7 +36,7 @@ function Board() {
             setFirstname(await value.userInfos.firstName)
         }
         getFirstName();
-    }, [value]);
+    }, [value])
     
     return(
         <StyledHello>
@@ -40,4 +46,4 @@ function Board() {
     )
 }
 
-export default Board
+export default Hello

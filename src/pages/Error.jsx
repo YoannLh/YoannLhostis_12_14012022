@@ -11,6 +11,10 @@ const StyledErrorMessage = styled.p`
     margin: auto;
 `
 
+/**
+ * Component
+ * Render StyledContainerError containing StyledErrorMessage containing a error message
+ */
 function Error() {
     return(
         <StyledContainerError>

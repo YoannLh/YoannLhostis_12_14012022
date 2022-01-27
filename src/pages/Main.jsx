@@ -6,7 +6,10 @@ const StyledMain = styled.div`
     display: flex;
     width: 100%;
 `
-
+/**
+ * Component
+ * Render StyledMain containing Sidebar and Board
+ */
 function Main() {
     return(
         <StyledMain>

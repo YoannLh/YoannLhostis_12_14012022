@@ -1,16 +1,25 @@
 import React, { createContext, useState, useEffect } from 'react'
-import Caller from '../callApi/Caller' 
+import { PropTypes } from 'prop-types'
+import Caller from '../callApi/Caller'
 
 export const ThemeContext = createContext()
 
+/**
+ * Create ThemeContext with all data user
+ * @param {*}
+ * @returns ThemeContext with states for children components in prop value
+ */
 export const ThemeProvider = ({ children }) => {
-  const [data, setData] = useState([])
-  const [userActivity, setUserActivity] = useState([])
-  const [userAverageSessions, setUserAverageSessions] = useState([])
-  const [userPerformance, setUserPerformance] = useState([])
+    const [data, setData] = useState([])
+    const [userActivity, setUserActivity] = useState([])
+    const [userAverageSessions, setUserAverageSessions] = useState([])
+    const [userPerformance, setUserPerformance] = useState([])
 
     useEffect(() => {
-        async function getUser() {
+        /** 
+         * Create new caller, execute all methods calls to API et set it all in differents states 
+        */
+        async function getUserAndAllInformations() {
             const caller = new Caller()
             const id = await caller.getId()
             console.log(id)
@@ -19,20 +28,28 @@ export const ThemeProvider = ({ children }) => {
                 return
             } else {
                 const newDataUser = await caller.getUser();
-            const newDataActivity = await caller.getActivity()
-            const newDataAverageSessions = await caller.getAverageSessions()
-            const newDataPerformance = await caller.getPerformance()
+                const newDataActivity = await caller.getActivity()
+                const newDataAverageSessions = await caller.getAverageSessions()
+                const newDataPerformance = await caller.getPerformance()
 
-            setData(await newDataUser)
-            setUserActivity(await newDataActivity)
-            setUserAverageSessions(await newDataAverageSessions)
-            setUserPerformance(await newDataPerformance)
+                setData(await newDataUser)
+                setUserActivity(await newDataActivity)
+                setUserAverageSessions(await newDataAverageSessions)
+                setUserPerformance(await newDataPerformance)
             }
         }
-        getUser()
+        getUserAndAllInformations()
     }, [children]);
 
     console.log(data)
+
+    ThemeProvider.propTypes = {
+        value: PropTypes.object
+    }
+    
+    ThemeProvider.defaultProps = {
+        value: {}
+    }
 
     return (
         <ThemeContext.Provider 

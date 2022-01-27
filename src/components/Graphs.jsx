@@ -21,7 +21,11 @@ const StyledContainerLineRadarAndPie = styled.div`
     height: 42.5%;
     justify-content: space-between;
 `
-
+/**
+ * Component
+ * Render StyledGraphs containing StyledBarCharts and 
+ * StyledContainerLineRadarAndPie containing LineCharts, RadarChart, PieCharts
+ */
 function Graphs() {
     return(
         <StyledGraphs>

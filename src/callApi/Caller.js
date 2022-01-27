@@ -1,10 +1,21 @@
 
+/**
+ * @class
+ * @classdesc Manage all calls to APi with theirs differentes routes. Then calls are made in context
+ */
+
 class Caller { 
     constructor() {
         this.state = {
             id: ""
         }
     }
+    /**
+     * Get param id in url then get id in API
+     * @returns { Promise }
+     * @return { Promise.resolve Number } id
+     * @return { Promise.reject Number } error
+     */
     async getId()  {
         let params = new URLSearchParams(document.location.search.substring(1));
 		this.id = params.get("id");
@@ -17,6 +28,12 @@ class Caller {
             console.log(err)
         }
     }
+    /**
+     * Get User in API
+     * @returns { Promise }
+     * @returns {Promise.resolve Object } id, score and nutriscore
+     * @returns {Promise.reject<Error> } HTML error
+     */
     async getUser() {
         try {
             const response = await fetch(`http://localhost:3001/user/${this.id}`);
@@ -28,6 +45,12 @@ class Caller {
             window.location.href = '*'
         }
     }
+    /**
+     * Get activity inAPI
+     * @returns { Promise }
+     * @returns {Promise.resolve Object } id, activities
+     * @returns {Promise.reject<Error> } HTML error
+     */
     async getActivity() {
         try {
             const response = await fetch(`http://localhost:3001/user/${this.id}/activity`);
@@ -37,7 +60,12 @@ class Caller {
         catch(err) {
             console.log(err)
         }
-    }
+    }/**
+     * Get sessions in APi
+     * @returns { Promise }
+     * @returns {Promise.resolve Object } id, sessions by day
+     * @returns {Promise.reject<Error> } HTML error
+     */
     async getAverageSessions() {
         try {
             const response = await fetch(`http://localhost:3001/user/${this.id}/average-sessions`);
@@ -48,6 +76,12 @@ class Caller {
             console.log(err)
         }
     }
+    /**
+     * Get performance in API
+     * @returns { Promise }
+     * @returns {Promise.resolve Object } id, performances by day
+     * @returns {Promise.reject<Error> } HTML error
+     */
     async getPerformance() {
         try {
             const response = await fetch(`http://localhost:3001/user/${this.id}/performance`);
@@ -60,14 +94,6 @@ class Caller {
     }
 }
 
-// const caller = new Caller()
-// caller.getId()
-
 export default Caller
 
-
-// - `http://localhost:3000/user/${userId}` - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-// - `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
-// - `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day. The week starts on Monday.
-// - `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
 

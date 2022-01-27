@@ -3,13 +3,17 @@ import styled from 'styled-components'
 import { ThemeContext } from '../context/Context'
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const StyledContainer = styled(ResponsiveContainer)`
+const StyledBarCharts = styled(ResponsiveContainer)`
     width: 100% !important;
     height: 51.5% !important;
     background: #FBFBFB;
     border-radius: 5px;
 `
 
+/**
+ * Component
+ * Render StyledBarcharts with data
+ */
 function BarCharts() {
     const { value2 } = useContext(ThemeContext)
     const [data, setData] = useState()
@@ -29,7 +33,7 @@ function BarCharts() {
     }, [value2])
 
     return (
-      <StyledContainer>
+      <StyledBarCharts>
         <BarChart
           data={data}
           margin={{
@@ -45,7 +49,7 @@ function BarCharts() {
           <Bar dataKey="kg" fill="black" barSize={7} />
           <Bar dataKey="cal" fill="red" barSize={7} />
         </BarChart>
-      </StyledContainer>
+      </StyledBarCharts>
     );
   
 }

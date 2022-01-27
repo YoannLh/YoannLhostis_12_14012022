@@ -11,6 +11,10 @@ const StyledLineCharts = styled(ResponsiveContainer)`
     border-radius: 5px;
 `
 
+/**
+ * Component
+ * Render StyledLineCharts with data
+ */
 function LineCharts() {
     const { value3 } = useContext(ThemeContext)
     const [data, setData] = useState()

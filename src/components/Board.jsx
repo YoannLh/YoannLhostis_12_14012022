@@ -9,8 +9,10 @@ const StyledBoard = styled.div`
     width: 100%;
     padding: 5%;
 `
-
-
+/**
+ * Component
+ * Render StyledBoard containing ThemeProvider containing Hello and ContainerGraphsAndScores
+ */
 function Board() {
     return(
         <StyledBoard>

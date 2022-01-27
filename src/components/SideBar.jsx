@@ -32,7 +32,10 @@ const StyledCopyright = styled.p`
     transform: rotate(270deg);
     color: white;
 `
-
+/**
+ * Component
+ * Render StyledSideBar containing StyledImg={yoga} StyledImg={swimming} StyledImg={bike} StyledImg={weights} StyleCopyright={Text}
+ */
 function SideBar() {
     return(
         <StyledSideBar>

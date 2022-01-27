@@ -10,7 +10,10 @@ const StyledScores = styled.div`
     justify-content: space-between;
     width: 23.5%;
 `
-
+/**
+ * Component
+ * Render StyledScores containing 4 Score
+ */
 function Scores() {
     const { value } = useContext(ThemeContext)
     const [calorie, setCalorie] = useState()

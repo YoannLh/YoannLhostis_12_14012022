@@ -11,7 +11,10 @@ const StyledRadarCharts = styled(ResponsiveContainer)`
     border-radius: 5px;
     color: white;
 `
-
+/**
+ * Component
+ * Render StyledRadarCharts with data
+ */
 function RadarCharts() {
     const {value4 } = useContext(ThemeContext)
     const [data, setData] = useState()
