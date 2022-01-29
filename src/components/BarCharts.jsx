@@ -20,13 +20,14 @@ function BarCharts() {
 
     useEffect(() => {
         if(!value2.sessions) return
+        console.log("value 2 : ", value2)
         const getActivity = async () => {
             const temp = []
-            let day = 1;
             for(const el of value2.sessions) {
-                temp.push({ day: day, kg: await el.kilogram, cal: await el.calories })
-                day++
+                const jour = el.day.split(new RegExp(/2020-/))
+                temp.push({ day: jour[1], kg: await el.kilogram, cal: await el.calories })
             }
+            console.log("temp : ", temp)
             setData(temp)
         }
         getActivity()
@@ -43,7 +44,7 @@ function BarCharts() {
             bottom: 15
           }}
         >
-          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" vertical="false" />
           <XAxis dataKey="day" />
           <Tooltip />
           <Bar dataKey="kg" fill="black" barSize={7} />

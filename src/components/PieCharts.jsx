@@ -9,64 +9,221 @@ const StyledContainerPieCharts = styled(ResponsiveContainer)`
     background: #FBFBFB;
     border-radius: 5px;
 `
+//background: #FBFBFB;
+
+const StyledSector = styled(Sector)`
+    background: blue;
+    cornerRadius={20}
+`
 
 const StyledPieChart = styled(PieChart)`
     position: relative;
+    top: 30px;
     display: flex;
-    
+    width: 170px !important;
+    height: 170px !important;
+    background: white; 
+    border-radius: 50%;
+    margin: auto;
 `
 
-const data = [{ score: `${12}%`, text: "de votre objectif", value: 400 }];
+const data = [{ name: "Group A", value: 400 }];
 
 const renderActiveShape = (props) => {
-    const { cx, cy, outerRadius, startAngle="45deg", endAngle="90deg", fill, payload } = props;
+  const RADIAN = Math.PI / 180;
+  const {
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    startAngle,
+    endAngle,
+    fill,
+    payload,
+    percent,
+    value
+  } = props;
+  const sin = Math.sin(-RADIAN * midAngle);
+  const cos = Math.cos(-RADIAN * midAngle);
+  const sx = cx + (outerRadius + 10) * cos;
+  const sy = cy + (outerRadius + 10) * sin;
+  const mx = cx + (outerRadius + 30) * cos;
+  const my = cy + (outerRadius + 30) * sin;
+  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+  const ey = my;
+  const textAnchor = cos >= 0 ? "start" : "end";
 
-    return (
-        <g>
-            <text x={cx} y={cy} dy={0} textAnchor="middle" fill={fill} style={{"width": "25% !important", "align-items": "center"}}>
-                {payload.score}
-                {payload.text}
-            </text>
-            <Sector
-                cx={cx}
-                cy={cy}
-                endAngle={endAngle}
-                startAngle={startAngle}
-                innerRadius={outerRadius + 6}
-                outerRadius={outerRadius + 20}
-                fill={fill}
-            />
-        </g>
-    );
+  return (
+    <g>
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+        {payload.name}
+      </text>
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={0}
+        endAngle={360}
+        innerRadius={outerRadius}
+        outerRadius={outerRadius + 17}
+        fill="#FBFBFB"
+        cornerRadius={20}
+        zIndex={1}
+      />
+      <Sector
+        cx={cx}
+        cy={cy}
+        startAngle={90}
+        endAngle={endAngle}
+        innerRadius={outerRadius}
+        outerRadius={outerRadius + 15}
+        fill="red"
+        cornerRadius={20}
+        zIndex={2}
+      />
+    </g>
+  );
 };
 
-const dataaa = [310]
+export default function App() {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-/**
- * Component
- * Render StyledContainerPieCharts with data
- */
-function PieCharts() {
-    const [activeIndex, setActiveIndex] = useState(0);
-    return (
-        <StyledContainerPieCharts>
-            <StyledPieChart>
-                <Pie
-                    activeIndex={activeIndex}
-                    activeShape={renderActiveShape}
-                    data={data}
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill="red"
-                    dataKey="value"
-                    paddingAngle={dataaa[0]}
-                ></Pie>
-            </StyledPieChart>
-        </StyledContainerPieCharts>
-    )
+  return (
+    <StyledContainerPieCharts>
+        <StyledPieChart width={400} height={400}>
+      <Pie
+        activeIndex={activeIndex}
+        activeShape={renderActiveShape}
+        data={data}
+        cx={122}
+        cy={64}
+        innerRadius={100}
+        outerRadius={112}
+        fill="black"
+        dataKey="value"
+        paddingAngle={200}
+      />
+    </StyledPieChart>
+    </StyledContainerPieCharts>
+  );
 }
 
-  export default PieCharts
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const data = [{ score: `${12}%`, value: 400 }];
+
+// const renderActiveShape = (props) => {
+//     const { cx, cy, outerRadius, startAngle, endAngle, fill, payload } = props;
+
+//     return (
+//         <g style={{
+//             "background": "white !important"
+//         }}>
+//             <text 
+//                 x={cx} 
+//                 y={cy} 
+//                 dy={-40} 
+//                 textAnchor="middle"
+//                 verticalAnchor="middle"
+//                 angle={180}
+//                 fontSize={25}
+//                 style={{
+                    
+//                 }}>
+//                 {payload.score}
+//             </text>
+//             <text
+//                 x={cx} 
+//                 y={cy} 
+//                 dy={0}
+//                 textAnchor="middle"
+//                 verticalAnchor="middle"
+//                 fill="grey" 
+//             >
+//                 de votre
+//             </text>
+//             <text
+//                 x={cx} 
+//                 y={cy} 
+//                 dy={40}
+//                 textAnchor="middle"
+//                 verticalAnchor="middle"
+//                 fill="grey"  
+//             >
+//                 objectif
+//             </text>
+//             <StyledSector
+//                 cx={cx}
+//                 cy={cy}
+//                 endAngle={endAngle}
+//                 startAngle={0}
+//                 innerRadius={outerRadius + 6}
+//                 outerRadius={outerRadius + 20}
+//                 fill={fill}
+//                 cornerRadius={20}
+//             />
+//         </g>
+//     );
+// };
+
+// /**
+//  * Component
+//  * Render StyledContainerPieCharts with data
+//  */
+// function PieCharts() {
+//     const { value } = useContext(ThemeContext)
+//     const [activeIndex, setActiveIndex] = useState(0);
+//     const [perimetre, setPerimetre] = useState(0);
+
+//     useEffect(() => {
+//         if(!value) return
+//         const getPercent = async () => {
+//             const result = 360 - ((await value.score * 100) * 360 / 100)
+//             setPerimetre(result)
+//         }
+//         getPercent()
+//     }, [value])
+//     return (
+//         <StyledContainerPieCharts>
+//             <StyledPieChart>
+//                 <Pie
+//                     activeIndex={activeIndex}
+//                     activeShape={renderActiveShape}
+//                     data={data}
+//                     innerRadius={60}
+//                     outerRadius={80}
+//                     fill="red"
+//                     dataKey="value"
+//                     paddingAngle={perimetre}
+//                 ></Pie>
+//             </StyledPieChart>
+//         </StyledContainerPieCharts>
+//     )
+// }
+
+//   export default PieCharts
+
+
+
+
+
+
+
+
+
+
+
 
 // const StyledPieChart = styled(PieChart)`
 //     position: relative;

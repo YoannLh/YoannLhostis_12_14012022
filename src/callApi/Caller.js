@@ -6,9 +6,7 @@
 
 class Caller { 
     constructor() {
-        this.state = {
-            id: ""
-        }
+        this.id = ""
     }
     /**
      * Get param id in url then get id in API
