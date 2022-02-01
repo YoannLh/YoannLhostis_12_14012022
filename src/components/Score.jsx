@@ -43,7 +43,7 @@ function Score({ type, value, unity, unit }) {
             />
             <StyledDetails>
                 <StyledNumber>{value}{unit}</StyledNumber>
-                <p>{unity}</p>
+                <p style={{color: "grey"}}>{unity}</p>
             </StyledDetails>
         </StyledScore>
     )

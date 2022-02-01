@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import styled from 'styled-components'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Text, Label, Legend, ResponsiveContainer } from 'recharts'
 import { ThemeContext } from '../context/Context'
 import { useEffect, useState } from 'react/cjs/react.development';
 
-const StyledLineCharts = styled(ResponsiveContainer)`
+const StyledLineCharts = styled.div`
     width: 31% !important;
     height: 100% !important;
     background: red;
@@ -35,19 +35,30 @@ function LineCharts() {
     
     return (
         <StyledLineCharts>
-            <LineChart
-                data={data}
-                margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                }}
-            >
-                <XAxis dataKey={"day"} />
-                <Tooltip />
-                <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" dot={false} activeDot={{ r: 3 }} />
-            </LineChart>
+            <p 
+            style={{
+                position: "relative", 
+                top: "8%", left: "8%", 
+                color: "rgba(255, 255, 255, 0.5)", 
+                fontSize: "1em"
+            }}>
+                Durée moyenne des<br/>sessions
+            </p>
+            <ResponsiveContainer>
+                <LineChart
+                    data={data}
+                    margin={{
+                        top: 30,
+                        right: 30,
+                        left: 20,
+                        bottom: 50,
+                    }}
+                >
+                    <XAxis dataKey={"day"} />
+                    <Tooltip />
+                    <Line type="natural" dataKey="sessionLength" unit=" min" stroke="white" dot={false} activeDot={{ r: 3 }} />
+                </LineChart>
+            </ResponsiveContainer>
         </StyledLineCharts>
     );
 }

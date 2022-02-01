@@ -15,3 +15,49 @@ p {
 line {
     opacity: 0;
 }
+
+.recharts-default-tooltip {
+    height: 90px;
+    background: red !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 0px solid black !important;
+}
+
+.recharts-tooltip-item-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.recharts-tooltip-item {
+    margin: auto !important;
+    color: white !important;
+}
+
+.recharts-tooltip-item-name {
+    display: none;
+}
+
+.recharts-tooltip-item-separator {
+    display: none;
+}
+
+.sc-crHmcD .recharts-default-tooltip {
+    height: auto;
+    background: white !important;
+    color: black;
+}
+
+.sc-crHmcD .recharts-tooltip-label {
+    display: none;
+}
+
+.sc-crHmcD .recharts-tooltip-item-value {
+    margin: auto;
+    color: black;
+}
+
+.sc-crHmcD .recharts-tooltip-item-unit {
+    color: black;
+}

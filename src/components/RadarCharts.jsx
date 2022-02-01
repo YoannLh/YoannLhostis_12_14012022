@@ -39,7 +39,7 @@ function RadarCharts() {
         <StyledRadarCharts>
             <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
                 <PolarGrid stroke="white" />
-                <PolarAngleAxis dataKey="kind" stroke="white" />
+                <PolarAngleAxis dataKey="kind" stroke="white" style={{fontSize: "0.7em"}} />
                 <Radar dataKey="value" stroke="rgba(255, 0, 0, 0.8)" fill="rgba(255, 0, 0, 0.8)" fillOpacity={0.8} />
             </RadarChart>
         </StyledRadarCharts>
