@@ -55,7 +55,7 @@ function LineCharts() {
                     }}
                 >
                     <XAxis dataKey={"day"} />
-                    <Tooltip />
+                    <Tooltip cursor={false} />
                     <Line type="natural" dataKey="sessionLength" unit=" min" stroke="white" dot={false} activeDot={{ r: 3 }} />
                 </LineChart>
             </ResponsiveContainer>

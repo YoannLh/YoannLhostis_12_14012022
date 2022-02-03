@@ -59,7 +59,7 @@ function BarCharts() {
                         bottom: 20
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={true} style={{zIndex: "2"}} />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={true} />
                     <YAxis dataKey="cal" orientation="right" />
                     <XAxis dataKey="day" />
                     <Tooltip 

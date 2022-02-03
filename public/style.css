@@ -12,7 +12,15 @@ p {
     margin: 0;
 }
 
-line {
+.recharts-cartesian-axis line {
+    opacity: 0;
+}
+
+.recharts-polar-grid-angle line {
+    opacity: 0;
+}
+
+.recharts-polar-angle-axis-ticks line {
     opacity: 0;
 }
 
@@ -60,4 +68,10 @@ line {
 
 .sc-crHmcD .recharts-tooltip-item-unit {
     color: black;
+}
+
+@media screen and (max-width: 1024px) {
+	.recharts-polar-angle-axis-tick {
+        font-size: 0.6em;
+	}
 }

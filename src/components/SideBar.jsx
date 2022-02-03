@@ -17,7 +17,7 @@ const StyledSideBar = styled.div`
 const StyledNav = styled.nav`
     display: flex;
     flex-direction: column;
-    margin: 210px auto;
+    margin: 180px auto;
     height: 310px;
 `
 
