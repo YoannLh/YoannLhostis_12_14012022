@@ -19,17 +19,22 @@ const StyledTitle = styled.p`
     fontSize: "1em";
 `
 
-const StyledScore = styled.div`
+const StyledContainerScore = styled.div`
     position: absolute; 
     top: 36%; 
-    left: 42%; 
+    left: 39%; 
     color: black; 
-    fontSize: 2em;
+    text-align: center;
+    div {
+        font-size: 1.6em;
+    }
     p {
         color: grey;
     }
+    @media screen and (max-width: 1024px) {
+        left: 34%;
+    }
 `
-
 
 function PieCharts() {
     const [score, setScore] = useState(0);
@@ -53,11 +58,11 @@ function PieCharts() {
             <StyledTitle>
                 Score
             </StyledTitle>
-            <StyledScore>
+            <StyledContainerScore>
                 <div>{score * 100}%</div>
                 <p>de votre</p>
                 <p>objectif</p>
-            </StyledScore>
+            </StyledContainerScore>
             <ResponsiveContainer
                 width={"100%"}
                 height={"100%"}

@@ -10,17 +10,77 @@ const StyledBarCharts = styled.div`
     border-radius: 5px;
 `
 
+const StyledContainerTitleAndUnits = styled.div`
+    display: flex;
+    position: relative;
+    top: 8%;    
+`
+
+const StyledTitle = styled.p`
+    position: absolute; 
+    left: 5%;
+`
+
+const StyledUnits = styled.div`
+    position: absolute; 
+    right: 5%;
+    display: flex;
+    width: 65%;
+    height: 20px;
+`
+
+const StyledContainerWeight = styled.div`
+    display: flex; 
+    width: 100%; 
+    height: 20px; 
+    alignItems: center;
+`
+
+const StyledDotWeight = styled.div`
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%;
+    background: black;
+    margin: auto 1% auto auto;
+`
+
+const StyledWeight = styled.p`
+    display: inline-block; 
+    color: grey;
+`
+
+const StyledContainerCals = styled.div`
+    display: flex; 
+    width: 100%;
+    height: 20px ;
+    alignItems: center; 
+    marginLeft: 2%;
+`
+
+const StyledDotCals = styled.div`
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    background: red; 
+    margin: auto 1% auto auto;
+`
+
+const StyledCals = styled.p`
+    display: inline-block; 
+    color: grey;
+`
+
 /**
  * Component
  * Render StyledBarcharts with data
  */
 function BarCharts() {
+
     const { value2 } = useContext(ThemeContext)
     const [data, setData] = useState()
 
     useEffect(() => {
         if(!value2.sessions) return
-        console.log("value 2 : ", value2)
         const getActivity = async () => {
             const temp = []
             for(const el of value2.sessions) {
@@ -32,23 +92,21 @@ function BarCharts() {
         getActivity()
     }, [value2])
 
-    console.log(data)
-
     return (
         <StyledBarCharts>
-            <div style={{position: "relative", top: "8%", display: "flex"}}>
-                <p style={{position: "absolute", left: "5%"}}>Activité quotidienne</p>
-                <div style={{position: "absolute", right: "5%", display: "flex", width: "65%", height: "20px"}}>
-                    <div style={{display: "flex", width: "100%", height: "20px", alignItems: "center"}}>
-                        <div style={{width: "10px", height: "10px", borderRadius: "50%", background: "black", margin: "auto 1% auto auto"}}></div>
-                        <p style={{display: "inline-block", color: "grey"}}>Poids (kg)</p>
-                    </div>
-                    <div style={{display: "flex", width: "100%", height: "20px", alignItems: "center", marginLeft: "2%"}}>
-                        <div style={{width: "10px", height: "10px", borderRadius: "50%", background: "red", margin: "auto 1% auto auto"}}></div>
-                        <p style={{display: "inline-block", color: "grey"}}>Calories brûlées (kCal)</p>
-                    </div>
-                </div>
-            </div>
+            <StyledContainerTitleAndUnits>
+                <StyledTitle>Activité quotidienne</StyledTitle>
+                <StyledUnits>
+                    <StyledContainerWeight>
+                        <StyledDotWeight></StyledDotWeight>
+                        <StyledWeight>Poids (kg)</StyledWeight>
+                    </StyledContainerWeight>
+                    <StyledContainerCals>
+                        <StyledDotCals></StyledDotCals>
+                        <StyledCals>Calories brûlées (kCal)</StyledCals>
+                    </StyledContainerCals>
+                </StyledUnits>
+            </StyledContainerTitleAndUnits>
             <ResponsiveContainer>
                 <BarChart
                     data={data}
@@ -62,7 +120,7 @@ function BarCharts() {
                     <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={true} />
                     <YAxis dataKey="cal" orientation="right" />
                     <XAxis dataKey="day" />
-                    <Tooltip 
+                    <Tooltip
                         labelStyle={{display: "none"}}
                         payload={[{}]}
                         contentStyle={{color: "white !important"}}

@@ -22,7 +22,6 @@ export const ThemeProvider = ({ children }) => {
         async function getUserAndAllInformations() {
             const caller = new Caller()
             const id = await caller.getId()
-            console.log(id)
             if(id === 404) { 
                 window.location.href = '*'
                 return
@@ -40,8 +39,6 @@ export const ThemeProvider = ({ children }) => {
         }
         getUserAndAllInformations()
     }, [children]);
-
-    console.log(data)
 
     ThemeProvider.propTypes = {
         value: PropTypes.object

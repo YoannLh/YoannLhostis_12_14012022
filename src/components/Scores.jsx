@@ -15,6 +15,7 @@ const StyledScores = styled.div`
  * Render StyledScores containing 4 Score
  */
 function Scores() {
+
     const { value } = useContext(ThemeContext)
     const [calorie, setCalorie] = useState()
     const [carbohydrate, setCarbohydrate] = useState()
@@ -32,8 +33,6 @@ function Scores() {
         getData();
     }, [value])
 
-    console.log("value : ", value)
-    
     return(
         <StyledScores>
             <Score type={"calorie"} value={calorie} unity={"Calories"} unit={"kCal"}/>

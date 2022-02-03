@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { ThemeContext } from '../context/Context'
 import styled from 'styled-components'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
 import { useEffect, useState } from 'react/cjs/react.development'
 
 const StyledRadarCharts = styled(ResponsiveContainer)`
@@ -16,9 +16,9 @@ const StyledRadarCharts = styled(ResponsiveContainer)`
  * Render StyledRadarCharts with data
  */
 function RadarCharts() {
+
     const {value4 } = useContext(ThemeContext)
     const [data, setData] = useState()
-    console.log(value4)
 
     useEffect(() => {
         if(!value4.data) return
@@ -30,7 +30,6 @@ function RadarCharts() {
                 temp.push(el)
                 index++
             }
-            console.log(temp)
             setData(temp)
         }
         getPerformance()
