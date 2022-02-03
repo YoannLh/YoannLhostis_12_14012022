@@ -38,14 +38,14 @@ function BarCharts() {
         <StyledBarCharts>
             <div style={{position: "relative", top: "8%", display: "flex"}}>
                 <p style={{position: "absolute", left: "5%"}}>Activité quotidienne</p>
-                <div style={{position: "absolute", right: "5%", display: "flex", width: "30%", height: "20px", justifyContent: "space-between"}}>
-                    <div style={{display: "flex", height: "20px", alignItems: "center"}}>
-                        <div style={{width: "10px", height: "10px", borderRadius: "50%", background: "black", marginRight: "1%"}}></div>
-                        <p style={{display: "inline-block"}}>Poids(kg)</p>
+                <div style={{position: "absolute", right: "5%", display: "flex", width: "65%", height: "20px"}}>
+                    <div style={{display: "flex", width: "100%", height: "20px", alignItems: "center"}}>
+                        <div style={{width: "10px", height: "10px", borderRadius: "50%", background: "black", margin: "auto 1% auto auto"}}></div>
+                        <p style={{display: "inline-block", color: "grey"}}>Poids (kg)</p>
                     </div>
-                    <div style={{display: "flex", height: "20px", alignItems: "center", marginLeft: "2%"}}>
-                        <div style={{width: "10px", height: "10px", borderRadius: "50%", background: "red", marginRight: "1%"}}></div>
-                        <p style={{display: "inline-block"}}>Caloriesbrûlées(kCal)</p>
+                    <div style={{display: "flex", width: "100%", height: "20px", alignItems: "center", marginLeft: "2%"}}>
+                        <div style={{width: "10px", height: "10px", borderRadius: "50%", background: "red", margin: "auto 1% auto auto"}}></div>
+                        <p style={{display: "inline-block", color: "grey"}}>Calories brûlées (kCal)</p>
                     </div>
                 </div>
             </div>
